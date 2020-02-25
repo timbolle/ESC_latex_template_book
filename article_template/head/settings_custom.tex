@@ -1,0 +1,30 @@
+%! Author = tbolle
+%! Date = 30.07.2019
+
+% Use this file for custom package and command-definition
+
+\newcommand{\mail}[1]{{\href{mailto:#1}{#1}}}
+
+
+\makeatletter
+
+\newcommand\frontmatter{%
+    \cleardoublepage
+  %\@mainmatterfalse
+  \pagenumbering{roman}}
+
+\newcommand\mainmatter{%
+    \cleardoublepage
+ % \@mainmattertrue
+  \pagenumbering{arabic}}
+
+\newcommand\backmatter{%
+  \if@openright
+    \cleardoublepage
+  \else
+    \clearpage
+  \fi
+ % \@mainmatterfalse
+   }
+
+\makeatother

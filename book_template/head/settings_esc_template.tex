@@ -1,0 +1,118 @@
+%! Author = tbolle
+%! Date = 30.07.2019
+
+
+\documentclass[a4paper,12pt, twoside]{book}
+
+% French or english language
+\usepackage[english,french]{babel}
+
+% To write special caracters
+% to be used with Linux/Windows
+\usepackage[utf8]{inputenc}
+
+% Set the fonts
+% Palatino for rm and math | Helvetica for ss | Courier for tt
+\usepackage{mathpazo} % math & rm
+\usepackage[scaled]{helvet} % ss
+\usepackage{courier} % tt
+%\normalfont % the default
+\usepackage[T1]{fontenc}
+
+% Set the spacing
+\usepackage{setspace}
+\onehalfspacing
+
+% set the margin
+% Taille des marges
+\usepackage[bottom=3.5cm]{geometry}
+%\usepackage{geometry}
+%\geometry{bindingoffset=1cm} % to bind pages
+
+
+
+% to be able to use landscape
+\usepackage{lscape}
+
+% To skip indent at the begining of paragraphs
+\usepackage[parfill]{parskip}
+
+% For quotes adapted in the
+\usepackage{csquotes}
+
+% for bullet points
+\usepackage{enumitem}
+
+% Footnote definition
+\usepackage[hang, bottom]{footmisc}
+
+%Pour le header
+\usepackage{fancyhdr}
+
+
+
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+\pagestyle{fancy}
+	\fancyhf{}
+	\setlength\headheight{15pt}
+	\renewcommand{\headrulewidth}{0.4pt}
+	\renewcommand{\footrulewidth}{0pt}
+	\fancyhead[OR]{\nouppercase{\rightmark}}
+	\fancyhead[EL]{\nouppercase{\leftmark}}
+	\fancyfoot[EL,OR]{\thepage}
+%	\fancyfoot[C]{\thepage}
+\fancypagestyle{plain}{
+	\fancyhf{}
+	\renewcommand{\headrulewidth}{0pt}
+	\renewcommand{\footrulewidth}{0pt}
+	\fancyfoot[EL,OR]{\thepage}
+%	\fancyfoot[C]{\thepage}
+	}
+\fancypagestyle{addpagenumbersforpdfimports}{
+	\fancyhead{}
+	\renewcommand{\headrulewidth}{0pt}
+	\fancyfoot{}
+	\fancyfoot[RO,LE]{\thepage}
+%	\fancyfoot[C]{\thepage}
+}
+
+
+% For links, URL and bookmarks in the document.
+\usepackage[colorlinks,bookmarks=true,linkcolor=blue,urlcolor=blue,citecolor=blue]{hyperref}
+\usepackage{bookmark}
+\usepackage{url}
+
+
+% for figures inclusion
+\usepackage{graphicx}
+\usepackage{caption}
+% For subfigures
+
+\usepackage{subcaption}
+% Path of the figures
+\graphicspath{{figures/}}
+
+% So tables are adjusted to text
+\usepackage{adjustbox}
+
+% for code and colors
+\input{head/color_definition.tex}
+\input{head/listings_language_definition.tex}
+
+
+\usepackage{lipsum}
+
+
+
+% Biblio
+\usepackage[
+			backend=biber,
+			style=iso-authoryear
+			]{biblatex}
+\appto{\bibsetup}{\raggedright}
+
+\addbibresource{tail/bibliography.bib}
+
+% renew command pour que citep fasse parencite
+\newcommand{\citep}[1]{\parencite{#1}}
+\renewcommand{\cite}[1]{\textcite{#1}}
